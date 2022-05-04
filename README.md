@@ -1,4 +1,4 @@
-# reach-sample-react-app
+# reach-algorand-react-app
 
 This is a sample React app that uses Reach to generate, deploy, and interact with a smart contract on Algorand.
 
@@ -13,8 +13,8 @@ Prerequisites:
 To see the demo in action:
 
 ```bash
-npm install   # this may take 5-15 mins to install
-npm run start # this may take a minute to compile
+npm install
+npm run start
 ```
 
 Open http://localhost:3000 in both Firefox and Chrome;

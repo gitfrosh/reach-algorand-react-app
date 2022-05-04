@@ -1,12 +1,11 @@
 'reach 0.1';
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
+'use strict';
 
 export const main =
   Reach.App(
     {
-      // deployMode: 'firstMsg',
-      // connectors: [ETH],
+      untrustworthyMaps: true,
+      connectors: [ALGO],
     },
     [Participant('Alice', {
       request: UInt,
