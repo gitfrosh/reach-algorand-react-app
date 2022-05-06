@@ -35,20 +35,9 @@ class App extends React.Component {
     // const addr = await acc.networkAccount.getAddress();
     const balAtomic = await reach.balanceOf(acc);
     const bal = reach.formatCurrency(balAtomic, 4);
-    try {
-      const faucet = await reach.getFaucet();
-      this.setState({ mode: 'FundAccount', acc, bal, faucet });
-    } catch (e) {
-      this.setState({ mode: 'SelectRole', acc, bal });
-    }
+    this.setState({ mode: 'SelectRole', acc, bal });
+
   }
-  fundAccount(fundAmountStandard) { // from mode: FundAccount
-    const { faucet, acc } = this.state;
-    const amountAtomic = reach.parseCurrency(fundAmountStandard || defaultFundAmtStandard);
-    reach.transfer(faucet, acc, amountAtomic);
-    this.setState({ mode: 'SelectRole' });
-  }
-  skipFundAccount() { this.setState({ mode: 'SelectRole' }); } // from mode: FundAccount
   selectRole(role) { this.setState({ mode: 'RunRole', role }); } // from mode: SelectRole
   selectBob() { this.selectRole(<Bob acc={this.state.acc} />); }
   selectAlice() { this.selectRole(<Alice acc={this.state.acc} />); }
